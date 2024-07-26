@@ -1,0 +1,9 @@
+diffusers
+transformers
+torch==2.0.1
+accelerate
+numpy==1.24.1
+opencv-python 
+torchvision==0.15.2
+
+

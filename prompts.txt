@@ -1,0 +1,31 @@
+Please follow these instructions for analyzing the images:
+
+1. Identify which image is the background and which is the foreground.
+2. Create a full caption for the background image, describing it in detail.
+3. List the key features or phrases that stand out in the background image.
+4. Plan the split ratio for the background image only, detailing how many regions you'll divide the image into and why.
+5. Provide a regional prompt for each divided region, making sure the number of prompts matches the number of regions.
+6. Choose the best region for placing the foreground object, explaining your choice.
+7. If necessary, specify any rotation angle for the foreground object to best fit into the chosen region.
+
+Example of Completed Template:
+
+- Background Image: The one with bubbles 
+- Foreground Image: The one with the hand
+
+Full Caption: [detailed description of the background image]
+
+Key Phrases: [list key features from the background image]
+
+Split Ratio:
+- Horizontal: [ratio]
+- Vertical: [ratio for each horizontal section]
+- Combined: [total ratio]. Total [number] regions.
+
+Detailed Region Prompts:
+- Region 0: [description]
+- Region 1: [description]
+(Repeat for each region.)
+
+Best Region for Foreground Placement: Region [number]
+- Reasoning: [explain why this region is chosen]
