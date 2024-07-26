@@ -52,7 +52,7 @@ def main():
     parser.add_argument('--image_path', type=str, required=True, help='Path to the input image')
     parser.add_argument('--mask_path', type=str, required=True, help='Path to the mask image')
     parser.add_argument('--output_base_path', type=str, required=True, help='Base path for output videos')
-    parser.add_argument('--model_path', type=str, default='/data/wjdata/.cache/huggingface/hub/models--stabilityai--stable-video-diffusion-img2vid-xt/snapshots/a1ce917313331d9d6cdea065aa176c27198bcaad', help='Path to the pretrained model')
+    parser.add_argument('--model_path', type=str, default='stabilityai/stable-video-diffusion-img2vid-xt', help='Path to the pretrained model')
     parser.add_argument('--motion_bucket_id', type=int, default=60, help='Motion bucket ID for the diffusion model')
     parser.add_argument('--num_videos', type=int, default=1, help='Number of videos to generate')
     parser.add_argument('--seed', type=int, default=None, help='Seed for generating the video')
@@ -69,6 +69,14 @@ def main():
     # Check if both seed and num_videos are provided and num_videos > 1
     if args.seed is not None and args.num_videos > 1:
         parser.error("Error: --seed and --num_videos cannot be used together when num_videos > 1. If a seed is specified, only one video can be generated to ensure determinism.")
+    
+    # Extract the base directory from the output path
+    base_dir = os.path.dirname(args.output_base_path)
+    
+    # Check if the base directory exists, create it if it doesn't
+    if base_dir and not os.path.exists(base_dir):
+        os.makedirs(base_dir)
+        print(f"Created directory: {base_dir}")
 
     process_video(args)
 
